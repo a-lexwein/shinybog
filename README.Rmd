@@ -1,0 +1,91 @@
+Go play now: <alexwein.shinyapps.io/shinybog>
+
+This is Boggle-like app built using R's shiny framework. It lets you:
+- Generate a grid of letters based on input for grid size and letter distribution.
+- Type in a word to verify if its on the board, and if it's a valid English word.
+
+Undearneath the hood, this app:
+- Scrapes letter frequency data from Wikipedia
+- Uses Tidyverse and Shiny frameworks within R to generate images representing word grids based on user input
+- Uses Javascript to extend functionality to Shiny
+- Defines a depth first graph traversal algorithm to check whether a given word is on a grid
+- Uses a trie to quickly determine whether a string is in a word list used for competetive Scrabble.
+
+# Run Locally
+
+# Description
+Over my lifetime, my most consistent diversion has been finding words in grids.  I've been playing variants on the classic word game Boggle since my childhood, and have racked up tens of thousands of games online over about twenty years. I don't play as much as used to, but Boggle remains an immensely satisfying mental exercise.
+
+When I first started teaching myself how to code, my very first little project was a Boggle shaker in Python in 2009, and a lot of my early coding projects were searches for fun letter patterns all the valid words.
+(insert image)
+
+This app was developed in R, using the Shiny framework. I started the project before I began learning Javascript, and full-stack development, and picked it up again after an immersive 12-week coding bootcamp. It's still a little buggy and could use some more features, but it already offers some unique options for my fellow die-hards.
+
+I don't play quite as much Boggle as a used to, but it remains a most 
+
+Just with 25 6-sides dice, the enormity of the combinations 
+
+Boggle 
+
+The two trickiest parts of the project have been:
+- Getting the text box to submit when you press enter.  I used the Javscript library JQuery to extend shiny
+
+
+thanks
+hadley
+dean atali
+
+Getting the graph search function
+
+The letter distribution comes from a table on Wikipedia.  When this app's server fires up, it loads the wikipedia page, scrapes the table, and builds a function that produces random letters based on a given language's distribution.  I didn't put a lot of work into ensuring data quality, and changes to the Wikipedia page could definitely break the app.
+http://en.wikipedia.org/wiki/Letter_frequency
+
+The board is modeled as a tidy dataset: for a 5 x 6 board, there are 30 rows, each with x and y coordinates and a letter determined through the distribution.  Once we have data in this format, we can graph it using ggplot2, generating the images you see on the page.  If you're unfamiliar with ggplot2, it's an elegant data visualization library with a grammar-based approach to building up charts from smaller components. The visual representation of the board is essentially a scatterplot with large squares for dots and text labels. I've added sets of horizontal, vertical, and diagonal lines in the background along with some other styling.
+
+I had built out a version of this app that generated the ggplot Boggle boards as a way to play around with Shiny about a year ago.  I put the project down, but went through a full-stack development bootcamp.  The bootcamp happened to be in Javascript, but the foundation in software engineering
+
+The algorithmic piece is the function to determine if a word is on a board. Although the data structure is a tidy dataset, this is really a graph search problem.  My strategy was to
+
+Let's say we want to know whether DOG is on this board:
+
+D O T
+O P E
+G F R
+
+First we find all the D's.  We want to start a path at each node with a D (in this case there is only one).  Then we look to see if any of the neighbors of the D node are the letter O.  To explore these paths, we remove D from the board, and now check whether 'OG' is reachable from either of the O nodes.  Ultimately coming to the G.
+
+The right architecture for this app:
+- generating a model of a board based on a set of options
+- a function that given a board, a word, and a set of options, returns a score
+
+UI:
+- render board visually
+- accept user input of words
+- accept user input of options
+
+letter distribution: 
+board shape/size: 
+dictionary: what is the list of valid words: minimum length or 
+traversal-rules: can imagine getting really crazy here
+scoring rules:
+time length:
+
+[TODO flesh out the algorithm description, or getting a better algo and describe that]
+
+Undearneath the hood, this app:
+- Scrapes letter frequency data from Wikipedia
+- Uses Tidyverse and Shiny frameworks within R to generate images representing word grids based on user input
+- Uses Javascript to extend functionality to Shiny
+- Defines a depth first graph traversal algorithm to check whether a given word is on a grid
+- Uses a trie to quickly determine whether a string is in the Scrabble dictionary
+
+## Thanks
+Deploying with shinyapps.io wasn't much harder than pressing a button, and the all the RStudio documentation and community around the Tidyverse and Shiny are superb. Dean Attali's work on Shiny and Javascript (especially the shinyjs package) has been a huge help. Also thanks to my instructors and classmates at Hack Reactor.
+
+# Spotify
+get_tracks <- function(spotify_id, tokens) {
+  # returns a data frame
+}
+
+
+
