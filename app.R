@@ -284,7 +284,7 @@ ui <- fluidPage(
                              selected = 'English'),
                  actionButton("buttonNewBoard", "New Board"),
                  
-                 p("by Alex Wein, code available here")           
+                 p("Alex Wein made this"), tags$a(href="https://github.com/a-lexwein/shinybog", "github.com/a-lexwein/shinybog")           
     ),
     # Show a plot of the generated distribution
     mainPanel(

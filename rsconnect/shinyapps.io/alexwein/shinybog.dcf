@@ -1,0 +1,12 @@
+name: shinybog
+title: shinybog
+username:
+account: alexwein
+server: shinyapps.io
+hostUrl: https://api.shinyapps.io/v1
+appId: 300084
+bundleId: 1274853
+url: https://alexwein.shinyapps.io/shinybog/
+when: 1521390420.57866
+asMultiple: FALSE
+asStatic: FALSE
