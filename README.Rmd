@@ -1,3 +1,10 @@
+---
+title: "Shiny Bog"
+output:
+  html_document:
+    highlight: pygments
+---
+
 ### Go play now: [alexwein.shinyapps.io/shinybog](https://alexwein.shinyapps.io/shinybog)
 
 This is a relaxing, customizable one player word game, that you'll be familiar with if you've played Boggle. It lets you:
@@ -13,14 +20,22 @@ Undearneath the hood, this app:
 * Defines a graph traversal algorithm to check whether a given word is on a grid
 * Uses a trie to quickly determine whether a string is in a word list used for competetive Scrabble
 
-![Demo](shinydemo1.gif)
+![](shinydemo1.gif)
 
 # Run Locally
 To run this app locally from your R console:
 ```{r, eval = FALSE}
 require('shiny')
-runGitHub('~/codes/bog/shinybog')
+runGitHub('a-lexwein/shinybog')
 ```
+
+Or you can clone this repo and run it from the terminal:
+```{r, engine = 'bash', eval = FALSE}
+git clone https://github.com/a-lexwein/shinybog.git
+cd shinybog
+R -e "shiny::runApp('app')"
+```
+Once you run tha above code, point your browser at the listed port on your local host.
 
 # Description
 Over my lifetime, my most consistent diversion has been finding words in grids.  I've been playing variants on the classic word game Boggle since my childhood, and have racked up tens of thousands of games online over about twenty years. I don't play as much as used to, but Boggle remains an immensely satisfying mental exercise, and has been regular inspiration in my life as programmer.
